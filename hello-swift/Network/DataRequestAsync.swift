@@ -7,12 +7,13 @@ import Alamofire
 
 extension DataRequest {
 
-    func responseDecodableAsync<T: Decodable>(of type: T.Type = T.self,
-                                              queue: DispatchQueue = .main,
-                                              dataPreprocessor: DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor,
-                                              decoder: DataDecoder = JSONDecoder(),
-                                              emptyResponseCodes: Set<Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes,
-                                              emptyRequestMethods: Set<HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) async throws -> T {
+    func responseDecodableAsync<T: Decodable>(
+            of type: T.Type = T.self,
+            queue: DispatchQueue = .main,
+            dataPreprocessor: DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor,
+            decoder: DataDecoder = JSONDecoder(),
+            emptyResponseCodes: Set<Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes,
+            emptyRequestMethods: Set<HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) async throws -> T {
 
         try await withCheckedThrowingContinuation { continuation in
             self.responseDecodable(

@@ -14,4 +14,8 @@ struct hello_swiftApp: App {
             ContentView()
         }
     }
+    
+    static func main() async {
+        print("Hello async!!!")
+    }
 }

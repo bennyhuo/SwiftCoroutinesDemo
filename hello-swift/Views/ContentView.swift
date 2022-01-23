@@ -33,11 +33,9 @@ struct ContentView: View {
                                 self.error = error
                             }
                     )
-
-
                 }
             }
-        }
+        }.al
     }
 }
 
